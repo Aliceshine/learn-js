@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#nav1{
+				width: 510px;
+				height: 35px;
+			}
+			#nav1 li{
+				float: left;
+				list-style: none;
+				position: relative;
+			}
+			a{
+				text-decoration: none;
+				display: block;
+				width: 100px;
+				height: 35px;
+				background-color: #FF7F50;
+				border-left: solid 1px seashell;
+				line-height: 35px;
+				text-align: center;
+			}
+			a:hover{
+				color: #FFF5EE;
+			}
+			#nav2,#nav3 li{
+				float: none;
+				
+			}
+			#nav2{
+				width: 100px;
+				height:70px ;
+				position: absolute;
+				left: 101px;
+				top: 35px;
+				display: none;
+			}
+			
+			#nav3 {
+				width: 100px;
+				height: 105px;
+				position: absolute;
+				left: 101px;
+				top: 0px;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var Ali=document.getElementById("ali"),		//课程大厅
+					Bli=document.getElementById("bli"),		//javascript
+					oUl1=document.getElementById('nav2');	//二级ul
+					oUl2=document.getElementById('nav3');	//三级ul
+				//鼠标移入移出课程大厅触发的事件
+				Ali.onmouseover=function(){
+					oUl1.style.display="block";
+				}
+				Ali.onmouseout=function(){
+						oUl1.style.display="none";
+				}
+				//鼠标移入移出二级ul触发的事件
+				oUl1.onmouseover=function(){
+					oUl1.style.display="block";
+				}
+				oUl1.onmouseout=function(){
+					oUl1.style.display="none";
+				}
+				//鼠标移入移出三级ul触发的事件
+				oUl2.onmouseover=function(){
+					oUl2.style.display="block";
+				}
+				oUl2.onmouseout=function(){
+					oUl2.style.display="none";
+				}
+				//鼠标移入移出javascript触发的事件
+				Bli.onmouseover=function(){
+					oUl2.style.display="block";
+				}
+				Bli.onmouseout=function(){
+					oUl2.style.display="none";
+				}
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		
+			<ul id="nav1">
+				<li><a href="#">首页</a></li>
+				<li><a href="#" id="ali">课程大厅</a></li>
+					<ul id="nav2">
+						<li><a href="#" id="bli">JavaScript</a></li>
+							<ul id="nav3">
+								<li><a href="#">js</a></li>
+								<li><a href="#">node.js</a></li>
+								<li><a href="#">ajax</a></li>
+							</ul>
+						<li><a href="#">jQuery</a></li>
+					</ul>
+				
+				<li><a href="#">学习中心</a></li>
+				<li><a href="#">经典案例</a></li>
+				<li><a href="#">关于我们</a></li>
+			</ul>
+		
+	</body>
+</html>
