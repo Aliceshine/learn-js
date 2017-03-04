@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#main{
+				width: 200px;
+				height: 200px;
+				background-color:#0066FF;
+				position: absolute;
+				left:100px;
+				top: 100px;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv=document.getElementById("main");
+				var timer=null;
+				document.onkeydown=function(e){
+					e=window.event||e;
+					switch(e.keyCode){
+            		case 37: //左键
+            			clearInterval(timer);
+               			startMove2();
+             			break;
+             		case 38: //向上键
+             			clearInterval(timer);
+               			startMove4();
+             			break;
+             		case 39: //右键
+             			clearInterval(timer);
+               			startMove1();
+             			break;
+             		case 40: //向下键
+             			clearInterval(timer);
+               			startMove3();
+             			break;
+             		}
+				}
+
+				function startMove1(){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						if(oDiv.offsetLeft==800){
+							clearInterval(timer);
+						}else{
+							oDiv.style.left=oDiv.offsetLeft+10+'px';
+						}
+					},30);
+				}
+				function startMove2(){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						if(oDiv.offsetLeft==100){
+							clearInterval(timer);
+						}else{
+							oDiv.style.left=oDiv.offsetLeft-10+'px';
+						}
+					},30);
+				}
+				function startMove3(){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						if(oDiv.offsetTop==800){
+							clearInterval(timer);
+						}else{
+							oDiv.style.top=oDiv.offsetTop+10+'px';
+						}
+					},30);
+				}
+				function startMove4(){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						if(oDiv.offsetTop==0){
+							clearInterval(timer);
+						}else{
+							oDiv.style.top=oDiv.offsetTop-10+'px';
+						}
+					},30);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main"></div>
+	</body>
+</html>
